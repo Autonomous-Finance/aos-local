@@ -1,7 +1,7 @@
 import { aoslocal } from '../src/index.js'
 
-const PROCESS = "1OEAToQGhSKV76oa1MFIGZ9bYxCJoxpXqtksApDdcu8"
-const MODULE = "L0R0-HrGcs8az_toOi06jLcBbjU0UsudpqIv9K-jBCw"
+const PROCESS = "Meb6GwY5I9QN77F0c5Ku2GpCFxtYyG1mfJus2GWYtII"
+const MODULE = "EAIJew2R7aptjpyn7TD7S7ldVW4cTpUhZCaMvcerfWc"
 
 // const PROCESS = "6poPdECzioaWeCSCf1YnZ9lkavQqaCmr3xywOWSEtm8"
 // const MODULE = "pvXvNCa-svBhc1ovojvqFn3YlWiP2fZiWR7gKvEGOPQ"
@@ -13,8 +13,8 @@ async function main() {
 
   const Env = {
     Process: {
-      Id: "1OEAToQGhSKV76oa1MFIGZ9bYxCJoxpXqtksApDdcu8",
-      Owner: "bUPyN5S1oR44mG1AQ51qgSZPmv985RiMqFiB3q9tUZU",
+      Id: "Meb6GwY5I9QN77F0c5Ku2GpCFxtYyG1mfJus2GWYtII",
+      Owner: "LjFZGDae9yM-yOj0Ei7ex0xy3Zdrbn8jo-7ZqVLT19E",
       Tags: [
         { name: "Data-Protocol", value: "ao" },
         { name: "Variant", value: "ao.TN.1" },
@@ -23,7 +23,7 @@ async function main() {
       ],
     },
     Module: {
-      Id: "L0R0-HrGcs8az_toOi06jLcBbjU0UsudpqIv9K-jBCw",
+      Id: "EAIJew2R7aptjpyn7TD7S7ldVW4cTpUhZCaMvcerfWc",
       Tags: [
         { name: "Data-Protocol", value: "ao" },
         { name: "Variant", value: "ao.TN.1" },
@@ -31,7 +31,7 @@ async function main() {
       ]
     }
   }
-  const result = await aos.eval("dbAdmin:exec [[select * from Oracles;]]", Env)
+  const result = await aos.eval("require('db.utils').rawQuery('select * from amm_transactions LIMIT 10000;')", Env)
   // const result = await aos.send({
   //   Target: "1OEAToQGhSKV76oa1MFIGZ9bYxCJoxpXqtksApDdcu8",
   //   Owner: "bUPyN5S1oR44mG1AQ51qgSZPmv985RiMqFiB3q9tUZU",
@@ -44,6 +44,7 @@ async function main() {
   //   return { Output: { data: '1234' } }
   // })
   //console.log(result)
+  console.log(result)
   console.log(result.Output.data)
 
 
